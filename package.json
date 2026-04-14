@@ -1,0 +1,24 @@
+{
+  "name": "@LamNguyen17/sp-features-friends",
+  "version": "1.0.3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "peerDependencies": {
+    "react": "19.2.0",
+    "react-native": "0.83.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "react-native": "0.83.4",
+    "typescript": "^5.8.3"
+  }
+}
