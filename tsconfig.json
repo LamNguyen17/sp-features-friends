@@ -18,5 +18,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
   },
-  "include": ["src"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"]
 }

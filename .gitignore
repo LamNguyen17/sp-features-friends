@@ -5,4 +5,4 @@ dist
 yarn.lock
 package-lock.json
 .npmrc
-.npmrc
+example
