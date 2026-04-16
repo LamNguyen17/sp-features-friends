@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
-import type {FriendsDeps} from "../types/injection";
-import {setFriends} from "../store/friendsSlice";
-import {FriendsRepositoryImpl} from "../../data/repositories/FriendsRepositoryImpl";
+import {FriendsRepositoryImpl} from "data/repositories/FriendsRepositoryImpl";
+import {setFriends} from "presentation/store/friendsSlice";
+import type {FriendsDeps} from "presentation/types/injection";
 
 export const useFriends = (deps: FriendsDeps) => {
     const repository = new FriendsRepositoryImpl(deps.infra.httpClient);

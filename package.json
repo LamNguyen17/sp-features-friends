@@ -1,6 +1,6 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.20",
+  "version": "1.0.22",
   "private": false,
   "workspaces": [
     "example"
@@ -18,7 +18,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && node scripts/check-branch.ts && npm run build",
     "publish:patch": "npm version patch && npm publish",
@@ -47,6 +47,7 @@
     "react-native-gesture-handler": "2.30.0",
     "react-native-safe-area-context": "5.5.2",
     "react-native-screens": "4.24.0",
+    "tsc-alias": "^1.8.16",
     "typescript": "5.8.3"
   },
   "dependencies": {

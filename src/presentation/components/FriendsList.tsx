@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { FriendItem } from './FriendItem'
+import {FriendItem} from "presentation/components/FriendItem";
 
 export const FriendsList = ({ data }: { data: any[] }) => {
     return (

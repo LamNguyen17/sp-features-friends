@@ -1,6 +1,6 @@
 import React from 'react'
-import {FriendsScreen} from '../screens/FriendsScreen'
-import type {FriendsDeps} from '../types/injection'
+import type {FriendsDeps} from "presentation/types/injection";
+import {FriendsScreen} from "presentation/screens/FriendsScreen";
 
 export const registerFriends = (Stack: any, deps: FriendsDeps) => {
     return (
