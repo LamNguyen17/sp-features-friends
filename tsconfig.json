@@ -2,7 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "target": "esnext",
+    "target": "ES2017",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -16,7 +18,15 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "@di/*": ["src/di/*"],
+      "@data/*": ["src/data/*"],
+      "@presentation/*": ["src/presentation/*"]
+    }
   },
   "include": ["src"],
   "exclude": [

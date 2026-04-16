@@ -1,6 +1,6 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.8",
+  "version": "1.0.20",
   "private": false,
   "workspaces": [
     "example"
@@ -47,7 +47,7 @@
     "react-native-gesture-handler": "2.30.0",
     "react-native-safe-area-context": "5.5.2",
     "react-native-screens": "4.24.0",
-    "typescript": "^5.8.3"
+    "typescript": "5.8.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.29.2"

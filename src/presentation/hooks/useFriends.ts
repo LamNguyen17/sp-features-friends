@@ -1,15 +1,18 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import type {FriendsDeps} from "../types/injection";
 import {setFriends} from "../store/friendsSlice";
-import {getFriends} from "../api/friendsApi";
+import {FriendsRepositoryImpl} from "../../data/repositories/FriendsRepositoryImpl";
 
 export const useFriends = (deps: FriendsDeps) => {
+    const repository = new FriendsRepositoryImpl(deps.infra.httpClient);
     const friends = deps.useSelector
-        ? deps.useSelector((s: any) => s.friends.list)
+        ? deps.useSelector((s: any) => {
+            return s.friends.list;
+        })
         : []
     useEffect(() => {
         const load = async () => {
-            const data = await getFriends(deps)
+            const data = await repository.getFriends()
             deps.dispatch?.(setFriends(data))
         }
         load()
