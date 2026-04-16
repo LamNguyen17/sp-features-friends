@@ -1,8 +1,10 @@
 .DS_Store
 .idea
 node_modules
-dist
+dist/
+build/
 yarn.lock
 package-lock.json
 .npmrc
 example
+*.map

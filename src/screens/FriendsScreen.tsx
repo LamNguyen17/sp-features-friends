@@ -1,36 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
-import { useFriends } from '../hooks/useFriends'
-import { FriendsList } from '../components/FriendsList'
+import {View, Text, StyleSheet, ActivityIndicator, FlatList} from 'react-native'
+import {useFriends} from '../hooks/useFriends'
+import type {FriendsDeps} from "../types/injection";
 
-type Props = {
-    fetchFriends?: () => Promise<any[]>
-}
-
-export const FriendsScreen = ({ fetchFriends }: Props) => {
-    const { friends, loading } = useFriends(fetchFriends)
+export const FriendsScreen = ({deps}: { deps: FriendsDeps }) => {
+    const {friends} = useFriends(deps)
+    const t = deps.t || ((k: string) => k)
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Friends</Text>
+        <View>
+            <Text>{t('friends.title')}</Text>
 
-            {loading ? (
-                <ActivityIndicator />
-            ) : (
-                <FriendsList data={friends} />
-            )}
+            {friends.map((f: any) => (
+                <Text key={f.id}>{f.name}</Text>
+            ))}
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff'
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        padding: 16
-    }
-})

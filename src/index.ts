@@ -1,1 +1,7 @@
-export * from './screens/FriendsScreen'
+// export * from './screens/FriendsScreen'
+export * from './navigation/registerFriends'
+export * from './store/friendsSlice'
+export * from './i18n/translations'
+export * from './types/injection'
+export * from './routes/routes'
+export { FriendsScreen } from './screens/FriendsScreen'

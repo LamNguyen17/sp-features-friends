@@ -1,39 +1,19 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
+import type {FriendsDeps} from "../types/injection";
+import {setFriends} from "../store/friendsSlice";
+import {getFriends} from "../api/friendsApi";
 
-type FetchFriends = () => Promise<any[]>
-
-export const useFriends = (fetchFriends?: FetchFriends) => {
-    const [friends, setFriends] = useState<any[]>([])
-    const [loading, setLoading] = useState(false)
-
+export const useFriends = (deps: FriendsDeps) => {
+    const friends = deps.useSelector
+        ? deps.useSelector((s: any) => s.friends.list)
+        : []
     useEffect(() => {
         const load = async () => {
-            setLoading(true)
-
-            try {
-                if (fetchFriends) {
-                    const data = await fetchFriends()
-                    setFriends(data)
-                } else {
-                    // fallback mock
-                    setTimeout(() => {
-                        setFriends([
-                            { id: '1', name: 'Lam Nguyen' },
-                            { id: '2', name: 'John Doe' },
-                            { id: '3', name: 'John Doe' },
-                            { id: '4', name: 'Lam Nguyen' },
-                        ])
-                        setLoading(false)
-                    }, 500)
-                    return
-                }
-            } finally {
-                setLoading(false)
-            }
+            const data = await getFriends(deps)
+            deps.dispatch?.(setFriends(data))
         }
-
         load()
     }, [])
 
-    return { friends, loading }
+    return { friends }
 }
