@@ -70,8 +70,6 @@ jobs:
       - name: Set dist-tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
-#          npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
-#            --registry=https://npm.pkg.github.com
           if [ "${{ steps.version.outputs.tag }}" = "latest" ]; then
             echo "✅ Force latest → stable"
             npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION latest \
