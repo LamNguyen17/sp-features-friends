@@ -24,12 +24,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com
-          scope: '@LamNguyen17'
-
-      - name: Setup npm registry
-        run: |
-          npm config set @LamNguyen17:registry https://npm.pkg.github.com
-          npm config set //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+#
+#      - name: Setup npm registry
+#        run: |
+#          npm config set @LamNguyen17:registry https://npm.pkg.github.com
+#          npm config set //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 
       - name: Install deps
         run: npm install
@@ -71,5 +70,6 @@ jobs:
         run: |
           VERSION=$(node -p "require('./package.json').version")
           npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
+            --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
