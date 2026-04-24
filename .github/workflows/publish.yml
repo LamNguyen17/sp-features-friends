@@ -25,20 +25,22 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com
 
+      - name: Setup npm registry
+        run: |
+          npm config set @LamNguyen17:registry https://npm.pkg.github.com
+          npm config set //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+
       - name: Install deps
         run: npm install
 
       - name: Build
         run: npm run build
 
-      # 🔥 AUTO VERSION LOGIC
       - name: Set Version
         id: version
         run: |
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-
           echo "Current version: $CURRENT_VERSION"
 
           if [ "$BRANCH" = "main" ]; then
@@ -68,6 +70,5 @@ jobs:
         run: |
           VERSION=$(node -p "require('./package.json').version")
           npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
-            --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
