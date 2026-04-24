@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com
+          scope: '@LamNguyen17'
 #
 #      - name: Setup npm registry
 #        run: |
@@ -69,7 +70,16 @@ jobs:
       - name: Set dist-tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
-            --registry=https://npm.pkg.github.com
+#          npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
+#            --registry=https://npm.pkg.github.com
+          if [ "${{ steps.version.outputs.tag }}" = "latest" ]; then
+            echo "✅ Force latest → stable"
+            npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION latest \
+              --registry=https://npm.pkg.github.com
+          else
+            echo "⚠️ Set ${{ steps.version.outputs.tag }}"
+            npm dist-tag add @LamNguyen17/sp-features-friends@$VERSION ${{ steps.version.outputs.tag }} \
+              --registry=https://npm.pkg.github.com
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
