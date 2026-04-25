@@ -3,9 +3,16 @@ import type {FriendsDeps} from "presentation/types/injection";
 // import {FriendsScreen} from "presentation/screens/FriendsScreen";
 
 // @ts-ignore
-const FriendsScreen = React.lazy(() => import(
+// const FriendsScreen = React.lazy(() => import(
+//     /* webpackChunkName: "sp-features-friends" */
+//     "../screens/FriendsScreen"))
+
+const FriendsScreen = React.lazy(() =>
     /* webpackChunkName: "sp-features-friends" */
-    "../screens/FriendsScreen"))
+    import('../screens/FriendsScreen').then(module => ({
+        default: module.FriendsScreen,
+    }))
+)
 
 
 export const registerFriends = (Stack: any, deps: FriendsDeps) => {
