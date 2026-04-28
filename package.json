@@ -1,15 +1,13 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "private": false,
   "workspaces": [
     "example"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist", "src"],
   "exports": {
     ".": {
       "require": "./dist/index.js",
