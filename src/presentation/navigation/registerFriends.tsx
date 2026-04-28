@@ -22,8 +22,9 @@ import {FriendDetailScreen} from "presentation/screens/FriendDetailScreen";
 // )
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+const Stack = createNativeStackNavigator()
 
-export const registerFriends = (Stack: any, deps: FriendsDeps) => {
+export const registerFriends = (deps: FriendsDeps) => {
     // return (
     //     <Stack.Screen name="Friends">
     //         {(props: any) => (
