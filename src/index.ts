@@ -1,3 +1,4 @@
+export { default } from './presentation/navigation/FriendsNavigator'
 export * from './presentation/navigation/registerFriends'
 export * from './presentation/store/friendsSlice'
 export * from './presentation/i18n/translations'
