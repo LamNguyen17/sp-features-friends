@@ -1,6 +1,6 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "private": false,
   "workspaces": [
     "example"
