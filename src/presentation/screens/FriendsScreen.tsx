@@ -3,12 +3,12 @@ import {View, Text, Pressable, StyleSheet, ActivityIndicator, FlatList} from 're
 import {useFriends} from '../hooks/useFriends'
 import type {FriendsDeps} from "../types/injection";
 
-export const FriendsScreen = ({props,deps}: { props: any, deps: FriendsDeps }) => {
+export const FriendsScreen = ({navigation,deps}: { navigation: any, deps: FriendsDeps }) => {
     const {friends} = useFriends(deps)
     const t = deps.t || ((k: string) => k)
 
     const goToDetail = (friend: any) => {
-        props?.navigation.navigate('FriendDetail', {
+        navigation.navigate('FriendDetail', {
             friend,
         })
     }

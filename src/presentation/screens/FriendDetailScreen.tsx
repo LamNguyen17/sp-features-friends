@@ -3,13 +3,13 @@ import {View, Text} from 'react-native'
 import type {FriendsDeps} from "../types/injection"
 
 export const FriendDetailScreen = ({
-                                       props,
+                                       route,
                                        deps,
                                    }: {
-    props: any
+    route: any
     deps: FriendsDeps
 }) => {
-    const {friend} = props?.route.params
+    const {friend} = route.params
     const t = deps.t || ((k: string) => k)
 
     return (
