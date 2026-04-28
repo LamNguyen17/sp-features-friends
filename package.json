@@ -1,6 +1,6 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "private": false,
   "workspaces": [
     "example"
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@react-navigation/bottom-tabs": "7.15.5",
     "@react-navigation/native": "7.1.33",
-    "@react-navigation/native-stack": "7.14.11",
+    "@react-navigation/native-stack": "^7.14.11",
     "@reduxjs/toolkit": "2.11.2",
     "@types/react": "^19.2.14",
     "react": "19.2.0",
