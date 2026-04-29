@@ -1,21 +1,16 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "private": false,
   "workspaces": [
     "example"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src"],
+  "files": ["dist"],
   "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./navigator": {
-      "require": "./dist/presentation/navigation/FriendsNavigator.tsx"
-    }
+    ".": "./dist/index.js",
+    "./navigator": "./dist/navigator.js"
   },
   "sideEffects": false,
   "scripts": {
