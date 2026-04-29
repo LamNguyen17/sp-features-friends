@@ -1,9 +1,5 @@
-// export { default } from './presentation/navigation/FriendsNavigator'
-export * from './presentation/navigation/registerFriends'
-export * from './presentation/store/friendsSlice'
-export * from './presentation/i18n/translations'
-export * from './presentation/types/injection'
 export * from './presentation/routes/routes'
+export * from './presentation/types/injection'
 
 export const loadFriendsNavigator = async () => {
     const mod = await import(
