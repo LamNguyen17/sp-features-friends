@@ -13,3 +13,6 @@ export const friends = {
 
 // types OK
 export * from './presentation/types/injection';
+export * from './presentation/store/friendsSlice'
+export * from './presentation/i18n/translations'
+export * from './presentation/routes/routes'
