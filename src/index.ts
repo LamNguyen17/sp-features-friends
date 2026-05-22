@@ -11,7 +11,9 @@ export const loadFriendsNavigator = () =>
     /* webpackChunkName: "sp-features-friends" */
     './presentation/navigation/FriendsNavigator'
     );
+
 // types OK
+export { default as FriendsNavigator } from './presentation/navigation/FriendsNavigator';
 export * from './presentation/types/injection';
 export * from './presentation/store/friendsSlice'
 export * from './presentation/i18n/translations'
