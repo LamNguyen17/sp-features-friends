@@ -1,6 +1,6 @@
 {
   "name": "@LamNguyen17/sp-features-friends",
-  "version": "1.0.46",
+  "version": "1.0.48",
   "private": false,
   "workspaces": [
     "example"
@@ -9,7 +9,14 @@
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./presentation/navigation/FriendsNavigator": {
+      "types": "./dist/presentation/navigation/FriendsNavigator.d.ts",
+      "default": "./dist/presentation/navigation/FriendsNavigator.js"
+    }
   },
   "sideEffects": false,
   "scripts": {
