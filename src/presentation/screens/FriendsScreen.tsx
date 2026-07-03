@@ -11,7 +11,7 @@ const FriendsScreen = () => {
   
   const goToDetail = (friend: any) => {
     // @ts-ignore
-    NavigationController.navigate('FriendDetail', {friend})
+    NavigationController.navigate('FriendsDetail', {friend})
   }
   
   return (

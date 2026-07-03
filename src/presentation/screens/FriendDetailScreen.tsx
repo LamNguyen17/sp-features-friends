@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { useTranslation } from 'react-i18next';
-import type { RouteProp } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
 const FriendDetailScreen = () => {
