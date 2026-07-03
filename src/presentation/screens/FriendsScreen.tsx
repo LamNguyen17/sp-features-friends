@@ -1,26 +1,28 @@
 import React from 'react'
-import {View, Text, Pressable, StyleSheet, ActivityIndicator, FlatList} from 'react-native'
-import {useFriends} from '../hooks/useFriends'
-import type {FriendsDeps} from "../types/injection";
+import { View, Text, Pressable } from 'react-native'
+import { NavigationController } from '@LamNguyen17/sp-core';
+import { useTranslation } from 'react-i18next';
 
-export const FriendsScreen = ({navigation,deps}: { navigation: any, deps: FriendsDeps }) => {
-    const {friends} = useFriends(deps)
-    const t = deps.t || ((k: string) => k)
+import { useFriends } from '@presentation/hooks/useFriends'
 
-    const goToDetail = (friend: any) => {
-        navigation.navigate('FriendDetail', {
-            friend,
-        })
-    }
-
-    return (
-        <View>
-            <Text>{t('friends.title')}</Text>
-            {friends.map((f: any) => (
-                <Pressable key={f.id} onPress={() => goToDetail(f)}>
-                    <Text>{f.name}</Text>
-                </Pressable>
-            ))}
-        </View>
-    )
+const FriendsScreen = () => {
+  const {t} = useTranslation('friends')
+  const {friends} = useFriends()
+  
+  const goToDetail = (friend: any) => {
+    // @ts-ignore
+    NavigationController.navigate('FriendDetail', {friend})
+  }
+  
+  return (
+    <View>
+      <Text>{t('friends')}</Text>
+      {friends?.map((f: any) => (
+        <Pressable key={f.id} onPress={() => goToDetail(f)}>
+          <Text>{f.name}</Text>
+        </Pressable>
+      ))}
+    </View>
+  )
 }
+export default FriendsScreen;

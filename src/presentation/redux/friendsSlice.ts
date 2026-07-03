@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 type Friend = { id: string| number; name: string }
 
-const slice = createSlice({
+const friendSlice = createSlice({
     name: 'friends',
     initialState: { list: [] as Friend[] },
     reducers: {
@@ -12,5 +12,5 @@ const slice = createSlice({
     }
 })
 
-export const { setFriends } = slice.actions
-export const friendsReducer = slice.reducer
+export const { setFriends } = friendSlice.actions
+export const friendsReducer = friendSlice.reducer
