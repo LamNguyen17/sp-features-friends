@@ -1,21 +1,20 @@
 import React from 'react'
-import {View, Text} from 'react-native'
-import type {FriendsDeps} from "../types/injection"
+import { View, Text } from 'react-native'
+import { useTranslation } from 'react-i18next';
+import type { RouteProp } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 
-export const FriendDetailScreen = ({
-                                       route,
-                                       deps,
-                                   }: {
-    route: any
-    deps: FriendsDeps
-}) => {
-    const {friend} = route.params
-    const t = deps.t || ((k: string) => k)
-
-    return (
-        <View>
-            <Text>{t('friends.detail')}</Text>
-            <Text>{friend.name}</Text>
-        </View>
-    )
+const FriendDetailScreen = () => {
+  const {t} = useTranslation('friends')
+  const route: any = useRoute();
+  const {friend} = route.params
+  
+  return (
+    <View>
+      <Text>{t('friends')}</Text>
+      <Text>{friend.name}</Text>
+    </View>
+  )
 }
+
+export default FriendDetailScreen;
