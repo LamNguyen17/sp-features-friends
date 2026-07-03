@@ -4,6 +4,7 @@ import { NavigationController } from '@LamNguyen17/sp-core';
 import { useTranslation } from 'react-i18next';
 
 import { useFriends } from '@presentation/hooks/useFriends'
+import { FriendsRoutes } from '@presentation/stack/types';
 
 const FriendsScreen = () => {
   const {t} = useTranslation('friends')
@@ -11,7 +12,7 @@ const FriendsScreen = () => {
   
   const goToDetail = (friend: any) => {
     // @ts-ignore
-    NavigationController.navigate('FriendsDetail', {friend})
+    NavigationController.navigate(FriendsRoutes.FriendsDetail, {friend})
   }
   
   return (
